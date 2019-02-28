@@ -3,12 +3,11 @@
 [[
 Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/abs/1706.02275)]
 
-
 ## WaterWorld
-![waterworld](gifs/waterworld.png)![waterworld](gifs/waterworld_plot.png)
+![waterworld](gifs/waterworld.gif)![waterworld](gifs/waterworld_plot.png)
 
-## Walker
-![walker](gifs/walker.png)![walker](gifs/walker_plot.png)
+## Multi-Walker
+![walker](gifs/walker.gif)![walker](gifs/walker_plot.png)
 
 
 ## Requirements:
