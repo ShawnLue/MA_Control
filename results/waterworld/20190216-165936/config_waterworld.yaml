@@ -1,0 +1,58 @@
+seed: 1234
+port: 5274
+
+task: waterworld
+alg: MADDPG
+noise: gaussian
+
+n_pursuers: 2
+n_evaders: 5
+n_poison: 5
+n_sensors: 20
+obstacle_radius: 0.12
+radius: 0.06
+food_reward: 10.0
+poison_reward: -1.0
+encounter_reward: 0.01
+n_coop: 2
+sensor_range: 0.6
+obstacle_loc:
+
+#dim_obs: 184
+#dim_act: 2
+# For gaussian
+final_noise_scale: 0.05
+init_noise_scale: 0.999998
+## For ou
+#final_noise_scale: 0.0
+#init_noise_scale: 0.3
+n_exploration_eps: 2000
+
+act_l: -1.0
+act_h: 1.0
+scale_reward: 0.01
+critic_layer: [1024, 512, 300]
+actor_layer: [512, 128]
+discrete_action: False
+
+batch_size: 128 # Update batch size
+capacity: 9e5 # Replay buffer size
+n_episodes: 20000 # all training episode
+test_n_episode: 20 # episode number for test
+test_interval: 20 #
+max_steps: 1000 # max steps for one episode
+test_max_steps: 1000 # max steps in test. (recording)
+episodes_before_train: 100 # wait for replay buffer
+target_update_interval: 100
+steps_per_update: 20
+use_cuda: True
+norm_rews: True
+
+# distributed
+n_training_threads: 4
+n_rollout_threads: 12
+
+gamma: 0.95
+tau: 0.01
+critic_lr: 1e-3
+actor_lr: 1e-4

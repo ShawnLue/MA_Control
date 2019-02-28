@@ -1,0 +1,58 @@
+seed: 1234
+port: 5274
+
+task: walker
+alg: MADDPG
+noise: gaussian
+
+n_walkers: 2
+position_noise: 0.
+angle_noise: 0.
+reward_mech: 'local'
+forward_reward: 10.0
+fall_reward: -100.0
+drop_reward: -100.0
+terminated_on_fall: True
+one_hot: True
+
+
+#dim_obs: 32 # 71 if one_hot
+#dim_act: 4
+# For gaussian
+final_noise_scale: 0.05
+init_noise_scale: 0.999998
+## For ou
+#final_noise_scale: 0.0
+#init_noise_scale: 0.3
+n_exploration_eps: 20000
+
+act_l: -1.0
+act_h: 1.0
+scale_reward: 0.01
+critic_layer: [512, 128, 32]
+actor_layer: [256, 32]
+discrete_action: False
+
+
+batch_size: 128 # Update batch size
+capacity: 9e5 # Replay buffer size
+n_episodes: 200000 # all training episode
+test_n_episode: 20 # episode number for test
+test_interval: 20 #
+max_steps: 300 # max steps for one episode
+test_max_steps: 1000 # max steps in test. (recording)
+episodes_before_train: 100 # wait for replay buffer
+target_update_interval: 100
+steps_per_update: 20
+use_cuda: True
+norm_rews: True
+
+# distributed
+n_training_threads: 4
+n_rollout_threads: 12
+
+
+gamma: 0.95
+tau: 0.01
+critic_lr: 1e-3
+actor_lr: 1e-4
